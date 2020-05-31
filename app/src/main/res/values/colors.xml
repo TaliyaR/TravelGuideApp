@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#00ca9d</color>
+    <color name="colorPrimaryDark">#00ca9d</color>
+    <color name="colorAccent">#00ca9d</color>
+    <color name="loginPageBackgroundColor">#FFFFFF</color>
+    <color name="textInputBackground">#fbfaff</color>
+    <color name="buttonText">#FFFFFF</color>
+    <color name="textColorPrimary">#9b99a9</color>
+    <color name="textColor">#00ca9d</color>
+    <color name="textHint">#5f5d70</color>
+    <color name="iconColor">#dad9e2</color>
+    <color name="textInputOutlineColor">#35343D</color>
+
+    <color name="red">#F63A2C</color>
 </resources>

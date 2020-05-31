@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">TravelGuide</string>
+
+    <string name="btn_login">Войти</string>
+    <string name="btn_register">Зарегистрируйтесь</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Пароль</string>
+    <string name="hint_name">Название</string>
+    <string name="hint_address">Адрес</string>
+    <string name="hint_description">Введите описание</string>
+    <string name="tv_register">Еще нет аккаунта?</string>
+    <string name="btn_reg">Зарегистрироваться</string>
+    <string name="btn_save">Сохранить</string>
+    <string name="register">Регистрация</string>
+    <string name="name">Travel Guide</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="favourite">Избранное</string>
+    <string name="my_place">Мои места</string>
+    <string name="list_fragment">Ближайшие места</string>
+    <string name="details_fragment">Описание</string>
+    <string name="add_fragment">Добавить место</string>
+
+    <string name="favourite_head">Добавьте место \nчтобы не забыть его посетить</string>
+    <string name="myplace_head">Добавьте ваше любимое место</string>
+    <string name="myplace_head2">Нажмите + чтобы начать</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
