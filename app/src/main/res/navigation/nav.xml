@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/favouriteFragment"
-        android:name="com.example.travelguide.favourite.FavouriteFragment"
+        android:name="com.example.travelguide.ui.favourite.FavouriteFragment"
         android:label="@string/favourite"
         tools:layout="@layout/fragment_favourite">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.travelguide.placesList.presentation.list.ListFragment"
+        android:name="com.example.travelguide.ui.placesList.presentation.list.ListFragment"
         android:label="@string/list_fragment"
         tools:layout="@layout/fragment_list" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/myPlaceFragment"
-        android:name="com.example.travelguide.profile.myPlace.MyPlaceFragment"
+        android:name="com.example.travelguide.ui.profile.myPlace.MyPlaceFragment"
         android:label="@string/my_place"
         tools:layout="@layout/fragment_my_place" >
 
@@ -39,17 +39,17 @@
 
     <fragment
         android:id="@+id/placeDetailsFragment"
-        android:name="com.example.travelguide.placesList.presentation.details.PlaceDetailsFragment"
+        android:name="com.example.travelguide.ui.placesList.presentation.details.PlaceDetailsFragment"
         android:label="@string/details_fragment"
         tools:layout="@layout/fragment_place_details" />
     <fragment
         android:id="@+id/addPlaceFragment"
-        android:name="com.example.travelguide.profile.add.AddPlaceFragment"
+        android:name="com.example.travelguide.ui.profile.add.AddPlaceFragment"
         android:label="@string/add_fragment"
         tools:layout="@layout/fragment_add_place" />
     <fragment
         android:id="@+id/myPlaceDetailsFragment"
-        android:name="com.example.travelguide.profile.details.MyPlaceDetailsFragment"
+        android:name="com.example.travelguide.ui.profile.details.MyPlaceDetailsFragment"
         android:label="MyPlaceDetailsFragment" />
 
 </navigation>

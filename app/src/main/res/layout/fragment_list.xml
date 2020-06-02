@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/container"
-    tools:context=".placesList.presentation.list.ListFragment">
+    tools:context=".ui.placesList.presentation.list.ListFragment">
 
     <ProgressBar
         android:id="@+id/progress_bar"
