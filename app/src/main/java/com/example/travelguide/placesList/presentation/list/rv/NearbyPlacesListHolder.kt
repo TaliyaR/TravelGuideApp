@@ -44,6 +44,7 @@ class NearbyPlacesListHolder(
             setOnClickListener {
                 clickLambda(place)
             }
+
         }
     }
 
@@ -53,12 +54,13 @@ class NearbyPlacesListHolder(
 
     companion object {
 
-        fun create(parent: ViewGroup, clickLambda: (Result) -> Unit) =
-            NearbyPlacesListHolder(
+        fun create(
+            parent: ViewGroup,
+            clickLambda: (Result) -> Unit
+        ) = NearbyPlacesListHolder(
                 LayoutInflater.from(parent.context).inflate(
                     R.layout.item_place, parent, false
-                ),
-                clickLambda
+                ), clickLambda
             )
     }
 }

@@ -13,5 +13,4 @@ class PlacesListInteractor constructor(
 
     fun getPlaceById(id: String?): Single<PlaceById> =
         placesListRepository.getPlaceById(id)
-
 }

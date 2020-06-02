@@ -9,7 +9,11 @@
         android:id="@+id/favouriteFragment"
         android:name="com.example.travelguide.favourite.FavouriteFragment"
         android:label="@string/favourite"
-        tools:layout="@layout/fragment_favourite"/>
+        tools:layout="@layout/fragment_favourite">
+        <action
+            android:id="@+id/action_favouriteFragment_to_placeDetailsFragment"
+            app:destination="@id/placeDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/listFragment"
         android:name="com.example.travelguide.placesList.presentation.list.ListFragment"
@@ -28,6 +32,9 @@
         <action
             android:id="@+id/action_myPlaceFragment_to_addPlaceFragment"
             app:destination="@id/addPlaceFragment" />
+        <action
+            android:id="@+id/action_myPlaceFragment_to_myPlaceDetailsFragment"
+            app:destination="@id/myPlaceDetailsFragment" />
     </fragment>
 
     <fragment
@@ -40,6 +47,10 @@
         android:name="com.example.travelguide.profile.add.AddPlaceFragment"
         android:label="@string/add_fragment"
         tools:layout="@layout/fragment_add_place" />
+    <fragment
+        android:id="@+id/myPlaceDetailsFragment"
+        android:name="com.example.travelguide.profile.details.MyPlaceDetailsFragment"
+        android:label="MyPlaceDetailsFragment" />
 
 </navigation>
 

@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.example.travelguide.data.db.AppDatabase
 import com.example.travelguide.data.db.dao.PlaceDAO
+import com.example.travelguide.data.db.dao.PlaceFromApiDAO
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -22,15 +23,7 @@ class RoomModule {
     @Singleton
     fun providePlaceDAO(appDatabase: AppDatabase): PlaceDAO = appDatabase.placeDAO()
 
-//    @Singleton
-//    @Provides
-//    fun providePlaceInteractor(repository: PlaceDbRepository): PlaceDbInteractor =
-//        PlaceDbInteractorImpl(repository)
-//
-//    @Singleton
-//    @Provides
-//    fun providePlaceRepository(placeDAO: PlaceDAO): PlaceDbRepository =
-//        PlaceDbRepositoryImpl(placeDAO)
-
-
+    @Provides
+    @Singleton
+    fun provideApiPlaceDAO(appDatabase: AppDatabase): PlaceFromApiDAO = appDatabase.placeFromApiDao()
 }

@@ -8,12 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.travelguide.R
 import com.example.travelguide.data.di.Injector
 import com.example.travelguide.data.models.Result
-import com.example.travelguide.placesList.presentation.details.PlaceDetailsFragment
 import com.example.travelguide.placesList.presentation.list.rv.NearbyPlacesListAdapter
 import com.example.travelguide.presentation.ViewModelFactory
 import com.google.android.material.snackbar.Snackbar
@@ -47,20 +45,25 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initObservers()
+        initProgress()
     }
-
 
     private fun initObservers() =
         viewModel?.getPlaces("55.753795,37.622197", "2000")?.observe(this, Observer {
             when {
                 it.results != null -> {
-                    initRecycler(it.results)
+                    initRecycler(it.results.subList(1, it.results.size - 1))
                 }
                 else -> {
                     Snackbar.make(container, "We have problem!", Snackbar.LENGTH_SHORT)
                 }
             }
         })
+
+    private fun initProgress() = viewModel?.inProgress?.observe(this, Observer {
+            progress_bar.visibility = it
+        }
+    )
 
     private fun initRecycler(list: List<Result>) {
         adapter = NearbyPlacesListAdapter(list) { Result ->
@@ -84,10 +87,5 @@ class ListFragment : Fragment() {
     override fun onDestroy() {
         Injector.clearPlacesListComponent()
         super.onDestroy()
-    }
-
-    companion object {
-        fun newInstance(): ListFragment =
-            ListFragment()
     }
 }

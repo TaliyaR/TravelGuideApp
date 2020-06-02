@@ -39,14 +39,6 @@ class MyPlaceViewModel constructor(
         return places
     }
 
-//    fun savePlace(place: Place){
-//        disposable.add(
-//            placeDbInteractor.insert(place)
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe()
-//        )
-//    }
 
     override fun onCleared() {
         super.onCleared()

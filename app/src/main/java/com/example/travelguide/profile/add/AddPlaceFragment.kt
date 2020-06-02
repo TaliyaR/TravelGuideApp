@@ -111,9 +111,6 @@ class AddPlaceFragment : Fragment() {
 
 
     companion object {
-        fun newInstance(): AddPlaceFragment =
-            AddPlaceFragment()
-
         const val INPUT_FILE_REQUEST_CODE = 1;
     }
 }

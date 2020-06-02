@@ -33,7 +33,8 @@ class MyPlaceDetailsFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         val bundle = this.arguments
-        id = bundle?.getString("placeId")?.toInt()
+        id = bundle?.getInt("placeId")
+        Injector.plusMyPlaceDetailsComponent().inject(this)
         initViewModel()
     }
 
@@ -68,6 +69,7 @@ class MyPlaceDetailsFragment : Fragment() {
     }
 
     override fun onDestroy() {
+        Injector.clearMyPlaceDetailsComponent()
         super.onDestroy()
     }
 

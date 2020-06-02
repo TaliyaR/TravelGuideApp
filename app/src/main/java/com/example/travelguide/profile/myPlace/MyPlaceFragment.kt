@@ -26,7 +26,6 @@ class MyPlaceFragment : Fragment() {
     var viewModel: MyPlaceViewModel? = null
 
 
-
     private var adapter: PlacesListAdapter? = null
 
     override fun onAttach(context: Context) {
@@ -46,7 +45,6 @@ class MyPlaceFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initObservers()
         clickListener()
-
     }
 
     private fun initObservers() {
@@ -66,8 +64,8 @@ class MyPlaceFragment : Fragment() {
         fab.setOnClickListener {
             val navController = findNavController()
             navController.navigate(R.id.action_myPlaceFragment_to_addPlaceFragment)
-            }
         }
+    }
 
     private fun initRecycler(list: List<Place>) {
         adapter = PlacesListAdapter(list) { Place ->
@@ -82,13 +80,10 @@ class MyPlaceFragment : Fragment() {
     }
 
     private fun navigateToFragment(place: Place) {
+        val navController = findNavController()
         val bundle = Bundle()
         place.id?.let { bundle.putInt("placeId", it) }
-        fragmentManager?.beginTransaction()?.apply {
-            //            replace(R.id.fragment_container, .newInstance(id))
-            addToBackStack(null)
-            commit()
-        }
+        navController.navigate(R.id.action_myPlaceFragment_to_myPlaceDetailsFragment, bundle)
     }
 
     private fun initViewModel() {
@@ -99,10 +94,5 @@ class MyPlaceFragment : Fragment() {
     override fun onDestroy() {
         Injector.clearMyPlaceListComponent()
         super.onDestroy()
-    }
-
-    companion object {
-        fun newInstance(): MyPlaceFragment =
-            MyPlaceFragment()
     }
 }

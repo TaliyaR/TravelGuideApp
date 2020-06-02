@@ -8,7 +8,13 @@ import retrofit2.http.Query
 
 interface PlaceService {
 
-    @GET("/maps/api/place/nearbysearch/json")
+//    @GET("/maps/api/place/nearbysearch/json")
+//    fun getNearbySearch(
+//        @Query("location") location: String,
+//        @Query("radius") radius: String
+//    ): Single<Places>
+
+    @GET("/maps/api/place/textsearch/json")
     fun getNearbySearch(
         @Query("location") location: String,
         @Query("radius") radius: String

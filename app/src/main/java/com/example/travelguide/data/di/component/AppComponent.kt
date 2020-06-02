@@ -5,6 +5,7 @@ import com.example.travelguide.data.di.module.AppModule
 import com.example.travelguide.data.di.module.NetModule
 import com.example.travelguide.data.di.module.RoomModule
 import com.example.travelguide.data.di.module.ServiceModule
+import com.example.travelguide.favourite.di.component.FavouriteComponent
 import com.example.travelguide.placesList.di.component.PlacesComponent
 import com.example.travelguide.profile.myPlace.di.component.MyPlacesComponent
 import dagger.Binds
@@ -19,6 +20,8 @@ interface AppComponent {
     fun plusPlacesComponent(): PlacesComponent.Builder
 
     fun plusMyPlacesComponent(): MyPlacesComponent.Builder
+
+    fun plusFavouriteComponent(): FavouriteComponent.Builder
 
     @Component.Builder
     interface Builder {

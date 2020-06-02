@@ -23,6 +23,8 @@ data class ResultById(
     var internationalPhoneNumber: String,
     @SerializedName("name")
     var name: String,
+    @SerializedName("permanently_closed")
+    var permanentlyClosed: Boolean,
     @SerializedName("opening_hours")
     var openingHours: OpeningHours,
     @SerializedName("photos")

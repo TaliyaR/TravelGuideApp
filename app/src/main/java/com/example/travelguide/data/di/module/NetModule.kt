@@ -33,8 +33,10 @@ class NetModule {
     @Singleton
     fun provideOkHttpClient(
         @Named(TAG_AUTH) authInterceptor: Interceptor,
-        @Named(TAG_LOGGING) loggingInterceptor: Interceptor
+        @Named(TAG_LOGGING) loggingInterceptor: Interceptor,
+        @Named(TAG_QUERY) queryInterceptor: Interceptor
     ) : OkHttpClient = OkHttpClient.Builder()
+        .addInterceptor(queryInterceptor)
         .addInterceptor(authInterceptor)
         .addInterceptor(loggingInterceptor)
         .build()
@@ -52,6 +54,15 @@ class NetModule {
     @Named(TAG_LANGUAGE)
     fun provideLanguageInterceptor() = Interceptor { chain->
         val newUrl = chain.request().url().newBuilder().addQueryParameter("language", "ru").build()
+        val newRequest = chain.request().newBuilder().url(newUrl).build()
+        chain.proceed(newRequest)
+    }
+
+    @Provides
+    @Singleton
+    @Named(TAG_QUERY)
+    fun provideQueryInterceptor() = Interceptor { chain ->
+        val newUrl = chain.request().url().newBuilder().addQueryParameter("query", "sights").build()
         val newRequest = chain.request().newBuilder().url(newUrl).build()
         chain.proceed(newRequest)
     }
@@ -81,6 +92,7 @@ class NetModule {
         private const val TAG_AUTH = "tag_auth"
         private const val TAG_URL = "tag_url"
         private const val TAG_LANGUAGE = "tag_language"
+        private const val TAG_QUERY = "tag_query"
     }
 
 }

@@ -3,10 +3,13 @@ package com.example.travelguide.data.di
 import com.example.travelguide.app.App
 import com.example.travelguide.data.di.component.AppComponent
 import com.example.travelguide.data.di.component.DaggerAppComponent
+import com.example.travelguide.favourite.di.component.FavouriteComponent
+import com.example.travelguide.favourite.di.component.FavouriteListComponent
 import com.example.travelguide.placesList.di.component.PlaceDetailsComponent
 import com.example.travelguide.placesList.di.component.PlacesComponent
 import com.example.travelguide.placesList.di.component.PlacesListComponent
 import com.example.travelguide.profile.add.di.component.AddMyPlaceComponent
+import com.example.travelguide.profile.details.di.component.MyPlaceDetailsComponent
 import com.example.travelguide.profile.myPlace.di.component.MyPlacesComponent
 import com.example.travelguide.profile.myPlace.di.component.MyPlacesListComponent
 
@@ -18,6 +21,9 @@ object Injector {
     private var myPlaceComponent: MyPlacesComponent? = null
     private var myPlacesListComponent: MyPlacesListComponent? = null
     private var addMyPlaceComponent: AddMyPlaceComponent? = null
+    private var myPlaceDetailsComponent: MyPlaceDetailsComponent? = null
+    private var favouriteComponent: FavouriteComponent? = null
+    private var favouriteListComponent: FavouriteListComponent? = null
 
     fun init(app: App) {
         appComponent = DaggerAppComponent.builder()
@@ -38,6 +44,12 @@ object Injector {
         .plusPlacesComponent()
         .build().also {
             placesComponent = it
+        }
+
+    fun plusFavouriteComponent(): FavouriteComponent = favouriteComponent ?: appComponent
+        .plusFavouriteComponent()
+        .build().also {
+            favouriteComponent = null
         }
 
     fun clearPlacesComponent() {
@@ -86,6 +98,28 @@ object Injector {
 
     fun clearAddMyPlaceComponent(){
         addMyPlaceComponent = null
+    }
+
+    fun plusMyPlaceDetailsComponent(): MyPlaceDetailsComponent =
+        myPlaceDetailsComponent ?: plusMyPlacesComponent()
+            .plusMyPlaceDetailsComponentBuilder()
+            .build().also {
+                myPlaceDetailsComponent = it
+            }
+
+    fun clearMyPlaceDetailsComponent(){
+        myPlaceDetailsComponent = null
+    }
+
+    fun plusFavouriteListComponent(): FavouriteListComponent =
+        favouriteListComponent ?: plusFavouriteComponent()
+            .plusFavouriteListComponentBuilder()
+            .build().also {
+                favouriteListComponent = it
+            }
+
+    fun clearFavouriteListComponent(){
+        favouriteListComponent = null
     }
 
 }

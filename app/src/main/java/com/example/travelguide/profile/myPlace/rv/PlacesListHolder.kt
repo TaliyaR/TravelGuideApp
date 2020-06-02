@@ -1,6 +1,5 @@
 package com.example.travelguide.placesList.presentation.list.rv
 
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,10 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.travelguide.R
 import com.example.travelguide.data.db.model.Place
-import com.squareup.picasso.Picasso
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_favourite_place.view.*
-import java.io.File
 
 class PlacesListHolder(
     override val containerView: View,
