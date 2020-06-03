@@ -13,7 +13,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
-import com.bumptech.glide.Glide
 import com.example.travelguide.R
 import com.example.travelguide.app.di.Injector
 import com.example.travelguide.data.ViewModelFactory
@@ -93,10 +92,6 @@ class AddPlaceFragment : Fragment() {
         if (resultCode == RESULT_OK) {
             if (requestCode == INPUT_FILE_REQUEST_CODE) {
                 selectedImageUri = data?.data
-                Glide.with(this)
-                    .load(Uri.parse(selectedImageUri.toString()))
-                    .into(image)
-
             }
         }
     }

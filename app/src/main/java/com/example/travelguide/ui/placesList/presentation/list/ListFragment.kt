@@ -11,11 +11,10 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.travelguide.R
 import com.example.travelguide.app.di.Injector
+import com.example.travelguide.data.ViewModelFactory
 import com.example.travelguide.data.models.Result
 import com.example.travelguide.ui.placesList.presentation.list.rv.NearbyPlacesListAdapter
-import com.example.travelguide.data.ViewModelFactory
 import com.example.travelguide.utils.LocationUtils
-import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_list.*
 import javax.inject.Inject
@@ -29,9 +28,7 @@ class ListFragment : Fragment() {
 
     private var adapter: NearbyPlacesListAdapter? = null
 
-    private lateinit var fusedLocationClient: FusedLocationProviderClient
-
-    private var location: String = "55.753795,37.622197"
+    private var location: String = "55.8075331,49.1783362"
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -54,7 +51,7 @@ class ListFragment : Fragment() {
     }
 
     private fun initLocation(): String {
-        var location: String = ""
+        var location: String = "55.8075331,49.1783362"
         context?.let { LocationUtils.getInstance(it) }
         LocationUtils.getLocation().observe(this, Observer { loc ->
             location = "${loc.latitude},${loc.longitude}"
@@ -63,7 +60,7 @@ class ListFragment : Fragment() {
     }
 
     private fun initObservers() =
-        viewModel?.getPlaces(location, "2000")?.observe(this, Observer {
+        viewModel?.getPlaces(initLocation(), "2000")?.observe(this, Observer {
             when {
                 it.results != null -> {
                     initRecycler(it.results.subList(1, it.results.size - 1))
